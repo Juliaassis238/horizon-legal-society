@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!--
+    ============================================================
+    HORIZON LEGAL SOCIETY — Premium Law Firm
+    Projeto desenvolvido por Júlia Ágata de Assis
+    ============================================================
+  -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Horizon Legal Society — Advocacia de Excelência</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --black: #0a0908;
+      --dark: #111009;
+      --charcoal: #1c1b18;
+      --warm-gray: #2e2c28;
+      --gray: #7a7568;
+      --gray-light: #b0a898;
+      --beige: #e8e2d8;
+      --cream: #f4f0e8;
+      --white: #faf8f4;
+      --gold: #c8a84a;
+      --gold-light: #dfc070;
+      --gold-dark: #9a7a28;
+      --font-serif: 'Cormorant', serif;
+      --font-sans: 'Inter', sans-serif;
+      --transition: all 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --shadow: 0 16px 48px rgba(10,9,8,0.12);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-sans); background: var(--white); color: var(--charcoal); overflow-x: hidden; }
+
+    /* NAVBAR */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 1.8rem 5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: var(--transition);
+    }
+    .navbar.scrolled {
+      background: rgba(250,248,244,0.97);
+      backdrop-filter: blur(20px);
+      padding: 1.1rem 5rem;
+      border-bottom: 1px solid var(--beige);
+      box-shadow: 0 1px 0 var(--beige);
+    }
+    .logo {
+      display: flex; flex-direction: column;
+      text-decoration: none;
+    }
+    .logo-name {
+      font-family: var(--font-serif);
+      font-size: 1.2rem; font-weight: 500; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--white); transition: color 0.4s;
+    }
+    .navbar.scrolled .logo-name { color: var(--charcoal); }
+    .logo-sub {
+      font-size: 0.48rem; letter-spacing: 0.5em; text-transform: uppercase;
+      color: var(--gold); margin-top: 0.1rem;
+    }
+    .nav-links { display: flex; gap: 2.8rem; list-style: none; align-items: center; }
+    .nav-links a {
+      font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 300;
+      color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.3s;
+    }
+    .navbar.scrolled .nav-links a { color: var(--gray); }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-consult {
+      padding: 0.65rem 2rem;
+      border: 1px solid rgba(200,168,74,0.5);
+      color: var(--gold) !important;
+      font-size: 0.62rem !important; letter-spacing: 0.2em !important;
+      transition: var(--transition) !important;
+    }
+    .nav-consult:hover { background: var(--gold) !important; color: var(--dark) !important; border-color: var(--gold) !important; }
+
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; }
+    .hamburger span { width: 22px; height: 1px; background: var(--white); display: block; transition: var(--transition); }
+    .navbar.scrolled .hamburger span { background: var(--charcoal); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh; position: relative; overflow: hidden;
+      display: grid; grid-template-columns: 1fr 1fr;
+    }
+    .hero-left {
+      background: var(--black);
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 9rem 5rem 6rem;
+      position: relative; overflow: hidden; z-index: 1;
+    }
+    .hero-left::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 0% 100%, rgba(200,168,74,0.08) 0%, transparent 60%);
+    }
+    .hero-right {
+      position: relative; overflow: hidden;
+    }
+    .hero-right img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      object-position: center; filter: brightness(0.6) contrast(1.1);
+    }
+    .hero-right::before {
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(90deg, var(--black) 0%, transparent 30%);
+    }
+    .hero-tag {
+      font-size: 0.55rem; letter-spacing: 0.55em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 2rem; position: relative;
+      opacity: 0; animation: fadeUp 0.6s ease 0.3s forwards;
+    }
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.8rem, 5.5vw, 5rem);
+      font-weight: 300; line-height: 1.1; color: var(--white);
+      margin-bottom: 2rem; position: relative;
+      opacity: 0; animation: fadeUp 0.8s ease 0.5s forwards;
+    }
+    .hero-title em { font-style: italic; color: var(--gold-light); display: block; }
+    .hero-desc {
+      font-size: 0.85rem; font-weight: 300; color: rgba(255,255,255,0.5);
+      line-height: 1.9; max-width: 380px; margin-bottom: 3rem; position: relative;
+      opacity: 0; animation: fadeUp 0.7s ease 0.7s forwards;
+    }
+    .hero-actions {
+      display: flex; gap: 1.2rem; align-items: center; position: relative;
+      opacity: 0; animation: fadeUp 0.7s ease 0.9s forwards;
+    }
+    .btn-gold {
+      display: inline-block; padding: 0.9rem 2.8rem;
+      background: var(--gold); color: var(--dark);
+      font-size: 0.62rem; font-weight: 500; letter-spacing: 0.25em;
+      text-transform: uppercase; text-decoration: none;
+      transition: var(--transition); border: none; cursor: pointer;
+    }
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,168,74,0.3); }
+    .btn-wire-gold {
+      font-size: 0.62rem; font-weight: 300; letter-spacing: 0.25em;
+      text-transform: uppercase; color: rgba(255,255,255,0.45);
+      text-decoration: none; border-bottom: 1px solid rgba(200,168,74,0.3);
+      padding-bottom: 2px; transition: var(--transition);
+    }
+    .btn-wire-gold:hover { color: var(--gold-light); border-color: var(--gold); }
+    .hero-seal {
+      position: absolute; bottom: 3rem; right: 3rem; z-index: 2;
+      width: 100px; height: 100px;
+      border: 1px solid rgba(200,168,74,0.3);
+      border-radius: 50%;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+      padding: 1rem;
+    }
+    .hero-seal span { font-family: var(--font-serif); font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); line-height: 1.6; }
+
+    /* ÁREAS JURÍDICAS */
+    .section-areas {
+      padding: 8rem 5rem;
+      background: var(--white);
+    }
+    .areas-header { max-width: 1300px; margin: 0 auto 5rem; display: flex; justify-content: space-between; align-items: flex-end; }
+    .label-gold { font-size: 0.55rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 0.8rem; }
+    .section-title { font-family: var(--font-serif); font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 400; color: var(--charcoal); line-height: 1.2; }
+    .section-title em { font-style: italic; color: var(--gold); }
+    .areas-grid { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--beige); border: 1px solid var(--beige); }
+    .area-card {
+      background: var(--white); padding: 3rem 2.5rem;
+      position: relative; overflow: hidden; transition: var(--transition);
+    }
+    .area-card::before {
+      content: ''; position: absolute; top: 0; left: 0;
+      width: 2px; height: 0; background: var(--gold);
+      transition: height 0.4s ease;
+    }
+    .area-card:hover::before { height: 100%; }
+    .area-card:hover { background: var(--cream); transform: translateY(-3px); box-shadow: var(--shadow); }
+    .area-icon {
+      width: 44px; height: 44px; border: 1px solid var(--beige);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.5rem; transition: border-color 0.3s;
+    }
+    .area-card:hover .area-icon { border-color: var(--gold); }
+    .area-icon svg { width: 20px; height: 20px; stroke: var(--gray); transition: stroke 0.3s; }
+    .area-card:hover .area-icon svg { stroke: var(--gold); }
+    .area-card h3 { font-family: var(--font-serif); font-size: 1.3rem; font-weight: 400; color: var(--charcoal); margin-bottom: 0.8rem; }
+    .area-card p { font-size: 0.82rem; font-weight: 300; color: var(--gray); line-height: 1.9; }
+    .area-link { display: inline-block; margin-top: 1.5rem; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-dark); text-decoration: none; }
+    .area-link:hover { color: var(--gold); }
+
+    /* ADVOGADOS */
+    .section-lawyers {
+      padding: 8rem 5rem;
+      background: var(--charcoal);
+    }
+    .lawyers-header { max-width: 1300px; margin: 0 auto 5rem; text-align: center; }
+    .lawyers-header .section-title { color: var(--white); }
+    .lawyers-header .section-title em { color: var(--gold-light); }
+    .lawyers-grid { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+    .lawyer-card { position: relative; overflow: hidden; }
+    .lawyer-img { width: 100%; aspect-ratio: 2/3; object-fit: cover; display: block; filter: grayscale(40%); transition: filter 0.5s, transform 0.5s; }
+    .lawyer-card:hover .lawyer-img { filter: grayscale(0%); transform: scale(1.03); }
+    .lawyer-info { padding: 1.5rem 0 0; }
+    .lawyer-info h3 { font-family: var(--font-serif); font-size: 1.2rem; font-weight: 400; color: var(--white); margin-bottom: 0.3rem; }
+    .lawyer-role { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
+    .lawyer-oab { font-size: 0.72rem; font-weight: 300; color: var(--gray-light); margin-top: 0.6rem; }
+    .lawyer-areas { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.8rem; }
+    .lawyer-area-tag { font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.3rem 0.8rem; border: 1px solid rgba(200,168,74,0.3); color: rgba(200,168,74,0.7); }
+
+    /* TIMELINE */
+    .section-timeline {
+      padding: 8rem 5rem;
+      background: var(--cream);
+    }
+    .timeline-header { text-align: center; margin-bottom: 5rem; }
+    .timeline-inner { max-width: 1100px; margin: 0 auto; }
+    .timeline-row { display: grid; grid-template-columns: 1fr 60px 1fr; gap: 0; align-items: center; margin-bottom: 0; }
+    .timeline-item-left, .timeline-item-right { padding: 2rem 3rem; }
+    .timeline-item-left { text-align: right; }
+    .timeline-center { display: flex; flex-direction: column; align-items: center; position: relative; }
+    .timeline-dot { width: 10px; height: 10px; border: 2px solid var(--gold); background: var(--cream); border-radius: 50%; position: relative; z-index: 1; }
+    .timeline-line { width: 1px; height: 60px; background: var(--beige); }
+    .timeline-year { font-family: var(--font-serif); font-size: 0.7rem; letter-spacing: 0.3em; color: var(--gold); display: block; margin-bottom: 0.4rem; }
+    .timeline-title { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 500; color: var(--charcoal); margin-bottom: 0.4rem; }
+    .timeline-text { font-size: 0.8rem; font-weight: 300; color: var(--gray); line-height: 1.8; }
+
+    /* ESTATÍSTICAS */
+    .section-stats {
+      padding: 6rem 5rem;
+      background: var(--gold);
+    }
+    .stats-inner { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); }
+    .stat-col { text-align: center; padding: 1.5rem 2rem; border-right: 1px solid rgba(10,9,8,0.15); }
+    .stat-col:last-child { border-right: none; }
+    .stat-col strong { font-family: var(--font-serif); font-size: 3.5rem; font-weight: 400; color: var(--dark); display: block; line-height: 1; }
+    .stat-col span { font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(10,9,8,0.6); margin-top: 0.5rem; display: block; }
+
+    /* CONTATO */
+    .section-contact {
+      padding: 8rem 5rem;
+      background: var(--white);
+    }
+    .contact-inner { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 8rem; align-items: start; }
+    .contact-left { }
+    .contact-title { font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 400; line-height: 1.2; color: var(--charcoal); margin-bottom: 1.5rem; }
+    .contact-title em { font-style: italic; color: var(--gold); }
+    .contact-body { font-size: 0.85rem; font-weight: 300; color: var(--gray); line-height: 2; margin-bottom: 2.5rem; }
+    .contact-details { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-detail { padding: 1.2rem 1.5rem; border-left: 2px solid var(--gold); background: var(--cream); }
+    .contact-detail strong { font-size: 0.55rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold-dark); display: block; margin-bottom: 0.3rem; font-weight: 400; }
+    .contact-detail span { font-size: 0.85rem; font-weight: 300; color: var(--charcoal); }
+    .cf-field { margin-bottom: 1.3rem; }
+    .cf-field label { display: block; font-size: 0.58rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gray); margin-bottom: 0.5rem; }
+    .cf-field input, .cf-field select, .cf-field textarea {
+      width: 100%; padding: 0.9rem 0;
+      border: none; border-bottom: 1px solid var(--beige);
+      background: transparent; font-family: var(--font-sans);
+      font-size: 0.88rem; font-weight: 300; color: var(--charcoal);
+      outline: none; transition: border-color 0.3s; appearance: none;
+    }
+    .cf-field input:focus, .cf-field select:focus, .cf-field textarea:focus { border-bottom-color: var(--gold); }
+    .cf-field textarea { resize: none; height: 80px; }
+    .cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .form-disclaimer { font-size: 0.7rem; font-weight: 300; color: var(--gray-light); line-height: 1.7; margin-top: 1rem; }
+
+    /* FOOTER */
+    footer { background: var(--black); padding: 5rem 5rem 3rem; border-top: 1px solid rgba(200,168,74,0.1); }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 4rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.05); margin-bottom: 3rem; }
+    .footer-brand .logo-name { color: var(--white) !important; }
+    .footer-brand p { font-size: 0.82rem; font-weight: 300; color: rgba(255,255,255,0.3); line-height: 1.9; margin-top: 1.2rem; max-width: 260px; }
+    .footer-col h4 { font-family: var(--font-serif); font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; font-weight: 400; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 0.8rem; }
+    .footer-col li a { font-size: 0.82rem; font-weight: 300; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.3s; }
+    .footer-col li a:hover { color: var(--gold-light); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+    .footer-bottom p { font-size: 0.72rem; font-weight: 300; color: rgba(255,255,255,0.2); }
+    .footer-bottom span { color: var(--gold); }
+
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    .reveal { opacity: 0; transform: translateY(35px); transition: opacity 0.9s ease, transform 0.9s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    .mobile-menu { display: none; position: fixed; inset: 0; background: var(--dark); z-index: 999; flex-direction: column; justify-content: center; align-items: center; gap: 2rem; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: var(--font-serif); font-size: 1.8rem; font-weight: 300; color: var(--white); text-decoration: none; transition: color 0.3s; letter-spacing: 0.05em; }
+    .mobile-menu a:hover { color: var(--gold-light); }
+    .menu-close-btn { position: absolute; top: 2rem; right: 2rem; background: none; border: none; color: var(--gold); font-size: 1.5rem; cursor: pointer; }
+
+    @media (max-width: 1100px) {
+      .navbar { padding: 1.5rem 2rem; }
+      .navbar.scrolled { padding: 1rem 2rem; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .hero-left { min-height: 100vh; padding: 8rem 2rem 5rem; }
+      .section-areas, .section-lawyers, .section-timeline, .section-stats, .section-contact, footer { padding-left: 2rem; padding-right: 2rem; }
+      .areas-grid { grid-template-columns: 1fr 1fr; }
+      .lawyers-grid { grid-template-columns: 1fr 1fr; }
+      .stats-inner { grid-template-columns: 1fr 1fr; }
+      .contact-inner { grid-template-columns: 1fr; gap: 4rem; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+      .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+      .timeline-row { grid-template-columns: 1fr 40px 1fr; }
+    }
+    @media (max-width: 600px) {
+      .areas-grid { grid-template-columns: 1fr; }
+      .lawyers-grid { grid-template-columns: 1fr; }
+      .stats-inner { grid-template-columns: 1fr 1fr; }
+      .cf-row { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .timeline-row { grid-template-columns: 1fr; }
+      .timeline-item-left { text-align: left; padding: 1rem 0; }
+      .timeline-item-right { padding: 1rem 0; }
+      .timeline-center { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <a href="#" class="logo">
+      <span class="logo-name">Horizon Legal Society</span>
+      <span class="logo-sub">Advocacia & Consultoria Jurídica</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#areas">Áreas de Atuação</a></li>
+      <li><a href="#advogados">Advogados</a></li>
+      <li><a href="#trajetoria">Trajetória</a></li>
+      <li><a href="#contato">Contato</a></li>
+      <li><a href="#contato" class="nav-consult">Consulta</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="menu-close-btn" id="menuClose">&#x2715;</button>
+    <a href="#areas" class="menu-link">Áreas Jurídicas</a>
+    <a href="#advogados" class="menu-link">Advogados</a>
+    <a href="#trajetoria" class="menu-link">Trajetória</a>
+    <a href="#contato" class="menu-link">Consulta</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <p class="hero-tag">Horizon Legal Society — Fundado em 1998</p>
+      <h1 class="hero-title">
+        Direito com<br>precisão e<br><em>integridade.</em>
+      </h1>
+      <p class="hero-desc">
+        Assessoria jurídica de alto nível para empresas e indivíduos que exigem não apenas competência técnica, mas visão estratégica e ética inabalável.
+      </p>
+      <div class="hero-actions">
+        <a href="#contato" class="btn-gold">Solicitar Consulta</a>
+        <a href="#areas" class="btn-wire-gold">Nossas Especialidades</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1200&q=90" alt="Horizon Legal Society" />
+      <div class="hero-seal">
+        <span>Membro OAB São Paulo Seção Premium</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÁREAS JURÍDICAS -->
+  <section class="section-areas" id="areas">
+    <div class="areas-header">
+      <div>
+        <span class="label-gold">Especialidades</span>
+        <h2 class="section-title reveal">Áreas de <em>Atuação</em></h2>
+      </div>
+      <a href="#contato" class="btn-gold">Consultar Especialista</a>
+    </div>
+    <div class="areas-grid">
+      <div class="area-card reveal">
+        <div class="area-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <h3>Direito Empresarial</h3>
+        <p>Assessoria completa em contratos, fusões, aquisições, reestruturações societárias e governança corporativa.</p>
+        <a href="#contato" class="area-link">Saiba mais</a>
+      </div>
+      <div class="area-card reveal reveal-delay-1">
+        <div class="area-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Litígio & Contencioso</h3>
+        <p>Representação estratégica em processos judiciais e arbitragem de alta complexidade, com foco em resultados.</p>
+        <a href="#contato" class="area-link">Saiba mais</a>
+      </div>
+      <div class="area-card reveal reveal-delay-2">
+        <div class="area-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <h3>Direito Tributário</h3>
+        <p>Planejamento tributário preventivo, consultoria fiscal e defesa em processos administrativos e judiciais.</p>
+        <a href="#contato" class="area-link">Saiba mais</a>
+      </div>
+      <div class="area-card reveal">
+        <div class="area-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Direito Trabalhista</h3>
+        <p>Consultoria preventiva e contenciosa trabalhista, compliance e gestão de passivos em relações de emprego.</p>
+        <a href="#contato" class="area-link">Saiba mais</a>
+      </div>
+      <div class="area-card reveal reveal-delay-1">
+        <div class="area-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3>Direito Imobiliário</h3>
+        <p>Assessoria em transações imobiliárias, due diligence, contratos de locação e incorporações imobiliárias.</p>
+        <a href="#contato" class="area-link">Saiba mais</a>
+      </div>
+      <div class="area-card reveal reveal-delay-2">
+        <div class="area-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        </div>
+        <h3>Propriedade Intelectual</h3>
+        <p>Registro e proteção de marcas, patentes, direitos autorais e contratos de licenciamento de tecnologia.</p>
+        <a href="#contato" class="area-link">Saiba mais</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADVOGADOS -->
+  <section class="section-lawyers" id="advogados">
+    <div class="lawyers-header">
+      <span class="label-gold" style="opacity:0.7">Nosso Corpo Jurídico</span>
+      <h2 class="section-title reveal">Sócios <em>Especialistas</em></h2>
+    </div>
+    <div class="lawyers-grid">
+      <div class="lawyer-card reveal">
+        <img class="lawyer-img" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=85" alt="Dr. André Horizon" />
+        <div class="lawyer-info">
+          <h3>Dr. André Horizon</h3>
+          <div class="lawyer-role">Sócio Fundador</div>
+          <div class="lawyer-oab">OAB/SP 145.892</div>
+          <div class="lawyer-areas">
+            <span class="lawyer-area-tag">Empresarial</span>
+            <span class="lawyer-area-tag">M&A</span>
+          </div>
+        </div>
+      </div>
+      <div class="lawyer-card reveal reveal-delay-1">
+        <img class="lawyer-img" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=85" alt="Dra. Letícia Matos" />
+        <div class="lawyer-info">
+          <h3>Dra. Letícia Matos</h3>
+          <div class="lawyer-role">Sócia — Litígio</div>
+          <div class="lawyer-oab">OAB/SP 198.441</div>
+          <div class="lawyer-areas">
+            <span class="lawyer-area-tag">Contencioso</span>
+            <span class="lawyer-area-tag">Arbitragem</span>
+          </div>
+        </div>
+      </div>
+      <div class="lawyer-card reveal reveal-delay-2">
+        <img class="lawyer-img" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=85" alt="Dr. Marcos Fonseca" />
+        <div class="lawyer-info">
+          <h3>Dr. Marcos Fonseca</h3>
+          <div class="lawyer-role">Sócio — Tributário</div>
+          <div class="lawyer-oab">OAB/SP 167.330</div>
+          <div class="lawyer-areas">
+            <span class="lawyer-area-tag">Tributário</span>
+            <span class="lawyer-area-tag">Fiscal</span>
+          </div>
+        </div>
+      </div>
+      <div class="lawyer-card reveal reveal-delay-3">
+        <img class="lawyer-img" src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400&q=85" alt="Dra. Camila Veiga" />
+        <div class="lawyer-info">
+          <h3>Dra. Camila Veiga</h3>
+          <div class="lawyer-role">Sócia — Trabalhista</div>
+          <div class="lawyer-oab">OAB/SP 222.817</div>
+          <div class="lawyer-areas">
+            <span class="lawyer-area-tag">Trabalhista</span>
+            <span class="lawyer-area-tag">Compliance</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESTATÍSTICAS -->
+  <section class="section-stats">
+    <div class="stats-inner">
+      <div class="stat-col reveal"><strong class="cnum" data-t="26">0</strong><span>Anos de Atuação</span></div>
+      <div class="stat-col reveal reveal-delay-1"><strong class="cnum" data-t="1400">0</strong><span>Casos Concluídos</span></div>
+      <div class="stat-col reveal reveal-delay-2"><strong class="cnum" data-t="38">0</strong><span>Advogados Especializados</span></div>
+      <div class="stat-col reveal reveal-delay-3"><strong class="cnum" data-t="97">0</strong><span>% de Êxito</span></div>
+    </div>
+  </section>
+
+  <!-- TRAJETÓRIA -->
+  <section class="section-timeline" id="trajetoria">
+    <div class="timeline-header">
+      <span class="label-gold" style="text-align:center; display:block; margin-bottom:0.8rem;">Nossa História</span>
+      <h2 class="section-title reveal">Uma trajetória de <em>excelência</em></h2>
+    </div>
+    <div class="timeline-inner">
+      <div class="timeline-row">
+        <div class="timeline-item-left reveal">
+          <span class="timeline-year">1998</span>
+          <div class="timeline-title">Fundação do Escritório</div>
+          <p class="timeline-text">Horizon Legal Society é fundado em São Paulo com foco em direito empresarial e contencioso de alta complexidade.</p>
+        </div>
+        <div class="timeline-center"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
+        <div class="timeline-item-right"></div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-item-left"></div>
+        <div class="timeline-center"><div class="timeline-line"></div><div class="timeline-dot"></div><div class="timeline-line"></div></div>
+        <div class="timeline-item-right reveal">
+          <span class="timeline-year">2007</span>
+          <div class="timeline-title">Expansão Nacional</div>
+          <p class="timeline-text">Abertura de escritórios no Rio de Janeiro e Brasília, consolidando presença em todos os principais tribunais brasileiros.</p>
+        </div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-item-left reveal">
+          <span class="timeline-year">2015</span>
+          <div class="timeline-title">Reconhecimento Internacional</div>
+          <p class="timeline-text">Listagem pelo ranking Chambers & Partners como escritório Tier 1 em Direito Empresarial no Brasil pela primeira vez.</p>
+        </div>
+        <div class="timeline-center"><div class="timeline-line"></div><div class="timeline-dot"></div><div class="timeline-line"></div></div>
+        <div class="timeline-item-right"></div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-item-left"></div>
+        <div class="timeline-center"><div class="timeline-line"></div><div class="timeline-dot"></div></div>
+        <div class="timeline-item-right reveal">
+          <span class="timeline-year">2024</span>
+          <div class="timeline-title">26 Anos de Excelência</div>
+          <p class="timeline-text">Com 38 advogados especializados e mais de 1.400 casos concluídos, celebramos dois décadas e meia de advocacia de excelência.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section class="section-contact" id="contato">
+    <div class="contact-inner">
+      <div class="reveal">
+        <span class="label-gold">Fale Conosco</span>
+        <h2 class="contact-title">Agende sua <em>consulta</em> jurídica</h2>
+        <p class="contact-body">Nossa equipe está disponível para uma primeira conversa confidencial sobre o seu caso. Discrição e sigilo são princípios inegociáveis.</p>
+        <div class="contact-details">
+          <div class="contact-detail"><strong>Endereço</strong><span>R. Funchal, 411, 12º andar — Vila Olímpia, São Paulo</span></div>
+          <div class="contact-detail"><strong>Telefone Central</strong><span>(11) 3070-9900</span></div>
+          <div class="contact-detail"><strong>E-mail</strong><span>consultas@horizonlegal.com.br</span></div>
+          <div class="contact-detail"><strong>Atendimento</strong><span>Segunda a Sexta, 8h às 19h</span></div>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <h3 style="font-family:var(--font-serif); font-size:1.5rem; font-weight:400; color:var(--charcoal); margin-bottom:2rem;">Formulário de Consulta</h3>
+        <form onsubmit="return false;">
+          <div class="cf-row">
+            <div class="cf-field"><label>Nome Completo</label><input type="text" placeholder="Seu nome" /></div>
+            <div class="cf-field"><label>Empresa (se aplicável)</label><input type="text" placeholder="Nome da empresa" /></div>
+          </div>
+          <div class="cf-row">
+            <div class="cf-field"><label>Telefone</label><input type="tel" placeholder="(11) 00000-0000" /></div>
+            <div class="cf-field"><label>E-mail</label><input type="email" placeholder="seu@email.com" /></div>
+          </div>
+          <div class="cf-field">
+            <label>Área Jurídica</label>
+            <select>
+              <option value="">Selecione a área</option>
+              <option>Direito Empresarial</option>
+              <option>Litígio & Contencioso</option>
+              <option>Direito Tributário</option>
+              <option>Direito Trabalhista</option>
+              <option>Direito Imobiliário</option>
+              <option>Propriedade Intelectual</option>
+            </select>
+          </div>
+          <div class="cf-field">
+            <label>Descreva brevemente a sua necessidade</label>
+            <textarea placeholder="Resumo do caso ou da demanda jurídica..."></textarea>
+          </div>
+          <button type="submit" class="btn-gold" style="width:100%; font-family:var(--font-sans); border:none; cursor:pointer;">
+            Enviar Solicitação de Consulta
+          </button>
+          <p class="form-disclaimer">Todas as informações compartilhadas são tratadas com absoluto sigilo profissional, nos termos do Código de Ética da OAB.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo"><span class="logo-name">Horizon Legal Society</span><span class="logo-sub">Advocacia & Consultoria Jurídica</span></a>
+        <p>Excelência jurídica com visão estratégica, integridade absoluta e resultados consistentes desde 1998.</p>
+      </div>
+      <div class="footer-col"><h4>Especialidades</h4><ul><li><a href="#">Direito Empresarial</a></li><li><a href="#">Contencioso</a></li><li><a href="#">Tributário</a></li><li><a href="#">Trabalhista</a></li></ul></div>
+      <div class="footer-col"><h4>Escritório</h4><ul><li><a href="#">Quem Somos</a></li><li><a href="#">Sócios</a></li><li><a href="#">Publicações</a></li><li><a href="#">Carreiras</a></li></ul></div>
+      <div class="footer-col"><h4>Contato</h4><ul><li><a href="#">R. Funchal, 411 — SP</a></li><li><a href="#">(11) 3070-9900</a></li><li><a href="#">consultas@horizonlegal.com.br</a></li><li><a href="#">Seg–Sex: 8h às 19h</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Horizon Legal Society. OAB/SP. Todos os direitos reservados.</p>
+      <p>Projeto desenvolvido por <span>Júlia Ágata de Assis</span></p>
+    </div>
+  </footer>
+
+  <script>
+    /* ============================================================
+       HORIZON LEGAL SOCIETY — Script Principal
+    ============================================================ */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 60));
+    document.getElementById('hamburger').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
+    document.getElementById('menuClose').addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
+    document.querySelectorAll('.menu-link').forEach(l => l.addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open')));
+
+    // Scroll reveal
+    const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    // Contadores animados
+    const counters = document.querySelectorAll('.cnum');
+    const cObs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = +el.dataset.t;
+        const suffix = target >= 97 ? '%' : '+';
+        let current = 0;
+        const step = target / 60;
+        const update = () => {
+          current += step;
+          if (current >= target) {
+            el.textContent = target.toLocaleString('pt-BR') + suffix;
+          } else {
+            el.textContent = Math.floor(current).toLocaleString('pt-BR') + suffix;
+            requestAnimationFrame(update);
+          }
+        };
+        update();
+        cObs.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(c => cObs.observe(c));
+  </script>
+</body>
+</html>
