@@ -102,7 +102,7 @@
     }
     .hero-left::before {
       content: ''; position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(10,9,8,0.95) 0%, rgba(28,27,24,0.95) 100%), radial-gradient(ellipse at 0% 100%, rgba(200,168,74,0.08) 0%, transparent 60%);
+      background: linear-gradient(135deg, rgba(10,9,8,0.92) 0%, rgba(28,27,24,0.92) 100%), radial-gradient(ellipse at 0% 100%, rgba(200,168,74,0.15) 0%, transparent 60%);
     }
     .hero-right {
       position: relative; overflow: hidden;
@@ -173,8 +173,10 @@
     .section-title em { font-style: italic; color: var(--gold); }
     .areas-grid { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--beige); border: 1px solid var(--beige); }
     .area-card {
-      background: var(--white); padding: 3rem 2.5rem;
+      background: var(--white); padding: 4rem 3rem;
       position: relative; overflow: hidden; transition: var(--transition);
+      border: 1px solid var(--beige);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
     }
     .area-card::before {
       content: ''; position: absolute; top: 0; left: 0;
@@ -182,7 +184,12 @@
       transition: height 0.4s ease;
     }
     .area-card:hover::before { height: 100%; }
-    .area-card:hover { background: var(--cream); transform: translateY(-3px); box-shadow: var(--shadow); }
+    .area-card:hover { 
+      background: var(--white); 
+      transform: translateY(-10px); 
+      box-shadow: 0 30px 60px rgba(200,168,74,0.1); 
+      border-color: var(--gold-light);
+    }
     .area-icon {
       width: 44px; height: 44px; border: 1px solid var(--beige);
       display: flex; align-items: center; justify-content: center;
