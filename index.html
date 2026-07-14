@@ -1,19 +1,19 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
-<head>
-  <!--
+<head><link as_="image" href="hero-desktop.webp?v=2" rel="preload"/>
+<!--
     ============================================================
     HORIZON LEGAL SOCIETY — Premium Law Firm
     Projeto desenvolvido por Júlia Ágata de Assis
     ============================================================
   -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Horizon Legal Society — Advocacia de Excelência</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet" />
-
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Horizon Legal Society — Advocacia de Excelência</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&amp;family=Inter:wght@200;300;400;500&amp;display=swap" rel="stylesheet"/>
+<style>
     :root {
       --black: #0a0908;
       --dark: #111009;
@@ -363,296 +363,286 @@
   </style>
 </head>
 <body>
-
-  <nav class="navbar" id="navbar">
-    <a href="#" class="logo">
-      <span class="logo-name">Horizon Legal Society</span>
-      <span class="logo-sub">Advocacia & Consultoria Jurídica</span>
-    </a>
-    <ul class="nav-links">
-      <li><a href="#areas">Áreas de Atuação</a></li>
-      <li><a href="#advogados">Advogados</a></li>
-      <li><a href="#trajetoria">Trajetória</a></li>
-      <li><a href="#contato">Contato</a></li>
-      <li><a href="#contato" class="nav-consult">Consulta</a></li>
-    </ul>
-    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
-  </nav>
-
-  <div class="mobile-menu" id="mobileMenu">
-    <button class="menu-close-btn" id="menuClose">&#x2715;</button>
-    <a href="#areas" class="menu-link">Áreas Jurídicas</a>
-    <a href="#advogados" class="menu-link">Advogados</a>
-    <a href="#trajetoria" class="menu-link">Trajetória</a>
-    <a href="#contato" class="menu-link">Consulta</a>
-  </div>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-left">
-      <p class="hero-tag">Horizon Legal Society — Fundado em 1998</p>
-      <h1 class="hero-title">
-        Direito com<br>precisão e<br><em>integridade.</em>
-      </h1>
-      <p class="hero-desc">
+<nav class="navbar" id="navbar">
+<a class="logo" href="#">
+<span class="logo-name">Horizon Legal Society</span>
+<span class="logo-sub">Advocacia &amp; Consultoria Jurídica</span>
+</a>
+<ul class="nav-links">
+<li><a href="#areas">Áreas de Atuação</a></li>
+<li><a href="#advogados">Advogados</a></li>
+<li><a href="#trajetoria">Trajetória</a></li>
+<li><a href="#contato">Contato</a></li>
+<li><a class="nav-consult" href="#contato">Consulta</a></li>
+</ul>
+<button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+<button class="menu-close-btn" id="menuClose">✕</button>
+<a class="menu-link" href="#areas">Áreas Jurídicas</a>
+<a class="menu-link" href="#advogados">Advogados</a>
+<a class="menu-link" href="#trajetoria">Trajetória</a>
+<a class="menu-link" href="#contato">Consulta</a>
+</div>
+<!-- HERO -->
+<section class="hero">
+<div class="hero-left">
+<p class="hero-tag">Horizon Legal Society — Fundado em 1998</p>
+<h1 class="hero-title">
+        Direito com<br/>precisão e<br/><em>integridade.</em>
+</h1>
+<p class="hero-desc">
         Assessoria jurídica de alto nível para empresas e indivíduos que exigem não apenas competência técnica, mas visão estratégica e ética inabalável.
       </p>
-      <div class="hero-actions">
-        <a href="#contato" class="btn-gold">Solicitar Consulta</a>
-        <a href="#areas" class="btn-wire-gold">Nossas Especialidades</a>
-      </div>
-    </div>
-    <div class="hero-right">
-      <img loading="lazy" src="hero-desktop.webp?v=2" alt="Horizon Legal Society">/>
+<div class="hero-actions">
+<a class="btn-gold" href="#contato">Solicitar Consulta</a>
+<a class="btn-wire-gold" href="#areas">Nossas Especialidades</a>
+</div>
+</div>
+<div class="hero-right">
+<img alt="Horizon Legal Society" fetchpriority="high" loading="eager" src="hero-desktop.webp?v=2"/>/&gt;
       <div class="hero-seal">
-        <span>Membro OAB São Paulo Seção Premium</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ÁREAS JURÍDICAS -->
-  <section class="section-areas" id="areas">
-    <div class="areas-header">
-      <div>
-        <span class="label-gold">Especialidades</span>
-        <h2 class="section-title reveal">Áreas de <em>Atuação</em></h2>
-      </div>
-      <a href="#contato" class="btn-gold">Consultar Especialista</a>
-    </div>
-    <div class="areas-grid">
-      <div class="area-card reveal">
-        <div class="area-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-        </div>
-        <h3>Direito Empresarial</h3>
-        <p>Assessoria completa em contratos, fusões, aquisições, reestruturações societárias e governança corporativa.</p>
-        <a href="#contato" class="area-link">Saiba mais</a>
-      </div>
-      <div class="area-card reveal reveal-delay-1">
-        <div class="area-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <h3>Litígio & Contencioso</h3>
-        <p>Representação estratégica em processos judiciais e arbitragem de alta complexidade, com foco em resultados.</p>
-        <a href="#contato" class="area-link">Saiba mais</a>
-      </div>
-      <div class="area-card reveal reveal-delay-2">
-        <div class="area-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        </div>
-        <h3>Direito Tributário</h3>
-        <p>Planejamento tributário preventivo, consultoria fiscal e defesa em processos administrativos e judiciais.</p>
-        <a href="#contato" class="area-link">Saiba mais</a>
-      </div>
-      <div class="area-card reveal">
-        <div class="area-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
-        <h3>Direito Trabalhista</h3>
-        <p>Consultoria preventiva e contenciosa trabalhista, compliance e gestão de passivos em relações de emprego.</p>
-        <a href="#contato" class="area-link">Saiba mais</a>
-      </div>
-      <div class="area-card reveal reveal-delay-1">
-        <div class="area-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-        </div>
-        <h3>Direito Imobiliário</h3>
-        <p>Assessoria em transações imobiliárias, due diligence, contratos de locação e incorporações imobiliárias.</p>
-        <a href="#contato" class="area-link">Saiba mais</a>
-      </div>
-      <div class="area-card reveal reveal-delay-2">
-        <div class="area-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
-        </div>
-        <h3>Propriedade Intelectual</h3>
-        <p>Registro e proteção de marcas, patentes, direitos autorais e contratos de licenciamento de tecnologia.</p>
-        <a href="#contato" class="area-link">Saiba mais</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ADVOGADOS -->
-  <section class="section-lawyers" id="advogados">
-    <div class="lawyers-header">
-      <span class="label-gold" style="opacity:0.7">Nosso Corpo Jurídico</span>
-      <h2 class="section-title reveal">Sócios <em>Especialistas</em></h2>
-    </div>
-    <div class="lawyers-grid">
-      <div class="lawyer-card reveal">
-        <img loading="lazy" class="lawyer-img" src="horizon_lawyer_1.webp" alt="Dr. André Horizon" />
-        <div class="lawyer-info">
-          <h3>Dr. André Horizon</h3>
-          <div class="lawyer-role">Sócio Fundador</div>
-          <div class="lawyer-oab">OAB/SP 145.892</div>
-          <div class="lawyer-areas">
-            <span class="lawyer-area-tag">Empresarial</span>
-            <span class="lawyer-area-tag">M&A</span>
-          </div>
-        </div>
-      </div>
-      <div class="lawyer-card reveal reveal-delay-1">
-        <img loading="lazy" class="lawyer-img" src="horizon_lawyer_2.webp" alt="Dra. Letícia Matos" />
-        <div class="lawyer-info">
-          <h3>Dra. Letícia Matos</h3>
-          <div class="lawyer-role">Sócia — Litígio</div>
-          <div class="lawyer-oab">OAB/SP 198.441</div>
-          <div class="lawyer-areas">
-            <span class="lawyer-area-tag">Contencioso</span>
-            <span class="lawyer-area-tag">Arbitragem</span>
-          </div>
-        </div>
-      </div>
-      <div class="lawyer-card reveal reveal-delay-2">
-        <img loading="lazy" class="lawyer-img" src="horizon_lawyer_3.webp" alt="Dr. Marcos Fonseca" />
-        <div class="lawyer-info">
-          <h3>Dr. Marcos Fonseca</h3>
-          <div class="lawyer-role">Sócio — Tributário</div>
-          <div class="lawyer-oab">OAB/SP 167.330</div>
-          <div class="lawyer-areas">
-            <span class="lawyer-area-tag">Tributário</span>
-            <span class="lawyer-area-tag">Fiscal</span>
-          </div>
-        </div>
-      </div>
-      <div class="lawyer-card reveal reveal-delay-3">
-        <img loading="lazy" class="lawyer-img" src="horizon_lawyer_4.webp" alt="Dra. Camila Veiga" />
-        <div class="lawyer-info">
-          <h3>Dra. Camila Veiga</h3>
-          <div class="lawyer-role">Sócia — Trabalhista</div>
-          <div class="lawyer-oab">OAB/SP 222.817</div>
-          <div class="lawyer-areas">
-            <span class="lawyer-area-tag">Trabalhista</span>
-            <span class="lawyer-area-tag">Compliance</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ESTATÍSTICAS -->
-  <section class="section-stats">
-    <div class="stats-inner">
-      <div class="stat-col reveal"><strong class="cnum" data-t="26">0</strong><span>Anos de Atuação</span></div>
-      <div class="stat-col reveal reveal-delay-1"><strong class="cnum" data-t="1400">0</strong><span>Casos Concluídos</span></div>
-      <div class="stat-col reveal reveal-delay-2"><strong class="cnum" data-t="38">0</strong><span>Advogados Especializados</span></div>
-      <div class="stat-col reveal reveal-delay-3"><strong class="cnum" data-t="97">0</strong><span>% de Êxito</span></div>
-    </div>
-  </section>
-
-  <!-- TRAJETÓRIA -->
-  <section class="section-timeline" id="trajetoria">
-    <div class="timeline-header">
-      <span class="label-gold" style="text-align:center; display:block; margin-bottom:0.8rem;">Nossa História</span>
-      <h2 class="section-title reveal">Uma trajetória de <em>excelência</em></h2>
-    </div>
-    <div class="timeline-inner">
-      <div class="timeline-row">
-        <div class="timeline-item-left reveal">
-          <span class="timeline-year">1998</span>
-          <div class="timeline-title">Fundação do Escritório</div>
-          <p class="timeline-text">Horizon Legal Society é fundado em São Paulo com foco em direito empresarial e contencioso de alta complexidade.</p>
-        </div>
-        <div class="timeline-center"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
-        <div class="timeline-item-right"></div>
-      </div>
-      <div class="timeline-row">
-        <div class="timeline-item-left"></div>
-        <div class="timeline-center"><div class="timeline-line"></div><div class="timeline-dot"></div><div class="timeline-line"></div></div>
-        <div class="timeline-item-right reveal">
-          <span class="timeline-year">2007</span>
-          <div class="timeline-title">Expansão Nacional</div>
-          <p class="timeline-text">Abertura de escritórios no Rio de Janeiro e Brasília, consolidando presença em todos os principais tribunais brasileiros.</p>
-        </div>
-      </div>
-      <div class="timeline-row">
-        <div class="timeline-item-left reveal">
-          <span class="timeline-year">2015</span>
-          <div class="timeline-title">Reconhecimento Internacional</div>
-          <p class="timeline-text">Listagem pelo ranking Chambers & Partners como escritório Tier 1 em Direito Empresarial no Brasil pela primeira vez.</p>
-        </div>
-        <div class="timeline-center"><div class="timeline-line"></div><div class="timeline-dot"></div><div class="timeline-line"></div></div>
-        <div class="timeline-item-right"></div>
-      </div>
-      <div class="timeline-row">
-        <div class="timeline-item-left"></div>
-        <div class="timeline-center"><div class="timeline-line"></div><div class="timeline-dot"></div></div>
-        <div class="timeline-item-right reveal">
-          <span class="timeline-year">2024</span>
-          <div class="timeline-title">26 Anos de Excelência</div>
-          <p class="timeline-text">Com 38 advogados especializados e mais de 1.400 casos concluídos, celebramos dois décadas e meia de advocacia de excelência.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTATO -->
-  <section class="section-contact" id="contato">
-    <div class="contact-inner">
-      <div class="reveal">
-        <span class="label-gold">Fale Conosco</span>
-        <h2 class="contact-title">Agende sua <em>consulta</em> jurídica</h2>
-        <p class="contact-body">Nossa equipe está disponível para uma primeira conversa confidencial sobre o seu caso. Discrição e sigilo são princípios inegociáveis.</p>
-        <div class="contact-details">
-          <div class="contact-detail"><strong>Endereço</strong><span>R. Funchal, 411, 12º andar — Vila Olímpia, São Paulo</span></div>
-          <div class="contact-detail"><strong>Telefone Central</strong><span>(11) 3070-9900</span></div>
-          <div class="contact-detail"><strong>E-mail</strong><span>consultas@horizonlegal.com.br</span></div>
-          <div class="contact-detail"><strong>Atendimento</strong><span>Segunda a Sexta, 8h às 19h</span></div>
-        </div>
-      </div>
-      <div class="reveal reveal-delay-2">
-        <h3 style="font-family:var(--font-serif); font-size:1.5rem; font-weight:400; color:var(--charcoal); margin-bottom:2rem;">Formulário de Consulta</h3>
-        <form onsubmit="return false;">
-          <div class="cf-row">
-            <div class="cf-field"><label>Nome Completo</label><input type="text" placeholder="Seu nome" /></div>
-            <div class="cf-field"><label>Empresa (se aplicável)</label><input type="text" placeholder="Nome da empresa" /></div>
-          </div>
-          <div class="cf-row">
-            <div class="cf-field"><label>Telefone</label><input type="tel" placeholder="(11) 00000-0000" /></div>
-            <div class="cf-field"><label>E-mail</label><input type="email" placeholder="seu@email.com" /></div>
-          </div>
-          <div class="cf-field">
-            <label>Área Jurídica</label>
-            <select>
-              <option value="">Selecione a área</option>
-              <option>Direito Empresarial</option>
-              <option>Litígio & Contencioso</option>
-              <option>Direito Tributário</option>
-              <option>Direito Trabalhista</option>
-              <option>Direito Imobiliário</option>
-              <option>Propriedade Intelectual</option>
-            </select>
-          </div>
-          <div class="cf-field">
-            <label>Descreva brevemente a sua necessidade</label>
-            <textarea placeholder="Resumo do caso ou da demanda jurídica..."></textarea>
-          </div>
-          <button type="submit" class="btn-gold" style="width:100%; font-family:var(--font-sans); border:none; cursor:pointer;">
+<span>Membro OAB São Paulo Seção Premium</span>
+</div>
+</div>
+</section>
+<!-- ÁREAS JURÍDICAS -->
+<section class="section-areas" id="areas">
+<div class="areas-header">
+<div>
+<span class="label-gold">Especialidades</span>
+<h2 class="section-title reveal">Áreas de <em>Atuação</em></h2>
+</div>
+<a class="btn-gold" href="#contato">Consultar Especialista</a>
+</div>
+<div class="areas-grid">
+<div class="area-card reveal">
+<div class="area-icon">
+<svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24"><rect height="14" rx="2" width="20" x="2" y="3"></rect><path d="M8 21h8M12 17v4"></path></svg>
+</div>
+<h3>Direito Empresarial</h3>
+<p>Assessoria completa em contratos, fusões, aquisições, reestruturações societárias e governança corporativa.</p>
+<a class="area-link" href="#contato">Saiba mais</a>
+</div>
+<div class="area-card reveal reveal-delay-1">
+<div class="area-icon">
+<svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+</div>
+<h3>Litígio &amp; Contencioso</h3>
+<p>Representação estratégica em processos judiciais e arbitragem de alta complexidade, com foco em resultados.</p>
+<a class="area-link" href="#contato">Saiba mais</a>
+</div>
+<div class="area-card reveal reveal-delay-2">
+<div class="area-icon">
+<svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+</div>
+<h3>Direito Tributário</h3>
+<p>Planejamento tributário preventivo, consultoria fiscal e defesa em processos administrativos e judiciais.</p>
+<a class="area-link" href="#contato">Saiba mais</a>
+</div>
+<div class="area-card reveal">
+<div class="area-icon">
+<svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+</div>
+<h3>Direito Trabalhista</h3>
+<p>Consultoria preventiva e contenciosa trabalhista, compliance e gestão de passivos em relações de emprego.</p>
+<a class="area-link" href="#contato">Saiba mais</a>
+</div>
+<div class="area-card reveal reveal-delay-1">
+<div class="area-icon">
+<svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+</div>
+<h3>Direito Imobiliário</h3>
+<p>Assessoria em transações imobiliárias, due diligence, contratos de locação e incorporações imobiliárias.</p>
+<a class="area-link" href="#contato">Saiba mais</a>
+</div>
+<div class="area-card reveal reveal-delay-2">
+<div class="area-icon">
+<svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+</div>
+<h3>Propriedade Intelectual</h3>
+<p>Registro e proteção de marcas, patentes, direitos autorais e contratos de licenciamento de tecnologia.</p>
+<a class="area-link" href="#contato">Saiba mais</a>
+</div>
+</div>
+</section>
+<!-- ADVOGADOS -->
+<section class="section-lawyers" id="advogados">
+<div class="lawyers-header">
+<span class="label-gold" style="opacity:0.7">Nosso Corpo Jurídico</span>
+<h2 class="section-title reveal">Sócios <em>Especialistas</em></h2>
+</div>
+<div class="lawyers-grid">
+<div class="lawyer-card reveal">
+<img alt="Dr. André Horizon" class="lawyer-img" decoding="async" loading="lazy" src="horizon_lawyer_1.webp"/>
+<div class="lawyer-info">
+<h3>Dr. André Horizon</h3>
+<div class="lawyer-role">Sócio Fundador</div>
+<div class="lawyer-oab">OAB/SP 145.892</div>
+<div class="lawyer-areas">
+<span class="lawyer-area-tag">Empresarial</span>
+<span class="lawyer-area-tag">M&amp;A</span>
+</div>
+</div>
+</div>
+<div class="lawyer-card reveal reveal-delay-1">
+<img alt="Dra. Letícia Matos" class="lawyer-img" decoding="async" loading="lazy" src="horizon_lawyer_2.webp"/>
+<div class="lawyer-info">
+<h3>Dra. Letícia Matos</h3>
+<div class="lawyer-role">Sócia — Litígio</div>
+<div class="lawyer-oab">OAB/SP 198.441</div>
+<div class="lawyer-areas">
+<span class="lawyer-area-tag">Contencioso</span>
+<span class="lawyer-area-tag">Arbitragem</span>
+</div>
+</div>
+</div>
+<div class="lawyer-card reveal reveal-delay-2">
+<img alt="Dr. Marcos Fonseca" class="lawyer-img" decoding="async" loading="lazy" src="horizon_lawyer_3.webp"/>
+<div class="lawyer-info">
+<h3>Dr. Marcos Fonseca</h3>
+<div class="lawyer-role">Sócio — Tributário</div>
+<div class="lawyer-oab">OAB/SP 167.330</div>
+<div class="lawyer-areas">
+<span class="lawyer-area-tag">Tributário</span>
+<span class="lawyer-area-tag">Fiscal</span>
+</div>
+</div>
+</div>
+<div class="lawyer-card reveal reveal-delay-3">
+<img alt="Dra. Camila Veiga" class="lawyer-img" decoding="async" loading="lazy" src="horizon_lawyer_4.webp"/>
+<div class="lawyer-info">
+<h3>Dra. Camila Veiga</h3>
+<div class="lawyer-role">Sócia — Trabalhista</div>
+<div class="lawyer-oab">OAB/SP 222.817</div>
+<div class="lawyer-areas">
+<span class="lawyer-area-tag">Trabalhista</span>
+<span class="lawyer-area-tag">Compliance</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ESTATÍSTICAS -->
+<section class="section-stats">
+<div class="stats-inner">
+<div class="stat-col reveal"><strong class="cnum" data-t="26">0</strong><span>Anos de Atuação</span></div>
+<div class="stat-col reveal reveal-delay-1"><strong class="cnum" data-t="1400">0</strong><span>Casos Concluídos</span></div>
+<div class="stat-col reveal reveal-delay-2"><strong class="cnum" data-t="38">0</strong><span>Advogados Especializados</span></div>
+<div class="stat-col reveal reveal-delay-3"><strong class="cnum" data-t="97">0</strong><span>% de Êxito</span></div>
+</div>
+</section>
+<!-- TRAJETÓRIA -->
+<section class="section-timeline" id="trajetoria">
+<div class="timeline-header">
+<span class="label-gold" style="text-align:center; display:block; margin-bottom:0.8rem;">Nossa História</span>
+<h2 class="section-title reveal">Uma trajetória de <em>excelência</em></h2>
+</div>
+<div class="timeline-inner">
+<div class="timeline-row">
+<div class="timeline-item-left reveal">
+<span class="timeline-year">1998</span>
+<div class="timeline-title">Fundação do Escritório</div>
+<p class="timeline-text">Horizon Legal Society é fundado em São Paulo com foco em direito empresarial e contencioso de alta complexidade.</p>
+</div>
+<div class="timeline-center"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
+<div class="timeline-item-right"></div>
+</div>
+<div class="timeline-row">
+<div class="timeline-item-left"></div>
+<div class="timeline-center"><div class="timeline-line"></div><div class="timeline-dot"></div><div class="timeline-line"></div></div>
+<div class="timeline-item-right reveal">
+<span class="timeline-year">2007</span>
+<div class="timeline-title">Expansão Nacional</div>
+<p class="timeline-text">Abertura de escritórios no Rio de Janeiro e Brasília, consolidando presença em todos os principais tribunais brasileiros.</p>
+</div>
+</div>
+<div class="timeline-row">
+<div class="timeline-item-left reveal">
+<span class="timeline-year">2015</span>
+<div class="timeline-title">Reconhecimento Internacional</div>
+<p class="timeline-text">Listagem pelo ranking Chambers &amp; Partners como escritório Tier 1 em Direito Empresarial no Brasil pela primeira vez.</p>
+</div>
+<div class="timeline-center"><div class="timeline-line"></div><div class="timeline-dot"></div><div class="timeline-line"></div></div>
+<div class="timeline-item-right"></div>
+</div>
+<div class="timeline-row">
+<div class="timeline-item-left"></div>
+<div class="timeline-center"><div class="timeline-line"></div><div class="timeline-dot"></div></div>
+<div class="timeline-item-right reveal">
+<span class="timeline-year">2024</span>
+<div class="timeline-title">26 Anos de Excelência</div>
+<p class="timeline-text">Com 38 advogados especializados e mais de 1.400 casos concluídos, celebramos dois décadas e meia de advocacia de excelência.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CONTATO -->
+<section class="section-contact" id="contato">
+<div class="contact-inner">
+<div class="reveal">
+<span class="label-gold">Fale Conosco</span>
+<h2 class="contact-title">Agende sua <em>consulta</em> jurídica</h2>
+<p class="contact-body">Nossa equipe está disponível para uma primeira conversa confidencial sobre o seu caso. Discrição e sigilo são princípios inegociáveis.</p>
+<div class="contact-details">
+<div class="contact-detail"><strong>Endereço</strong><span>R. Funchal, 411, 12º andar — Vila Olímpia, São Paulo</span></div>
+<div class="contact-detail"><strong>Telefone Central</strong><span>(11) 3070-9900</span></div>
+<div class="contact-detail"><strong>E-mail</strong><span>consultas@horizonlegal.com.br</span></div>
+<div class="contact-detail"><strong>Atendimento</strong><span>Segunda a Sexta, 8h às 19h</span></div>
+</div>
+</div>
+<div class="reveal reveal-delay-2">
+<h3 style="font-family:var(--font-serif); font-size:1.5rem; font-weight:400; color:var(--charcoal); margin-bottom:2rem;">Formulário de Consulta</h3>
+<form onsubmit="return false;">
+<div class="cf-row">
+<div class="cf-field"><label>Nome Completo</label><input placeholder="Seu nome" type="text"/></div>
+<div class="cf-field"><label>Empresa (se aplicável)</label><input placeholder="Nome da empresa" type="text"/></div>
+</div>
+<div class="cf-row">
+<div class="cf-field"><label>Telefone</label><input placeholder="(11) 00000-0000" type="tel"/></div>
+<div class="cf-field"><label>E-mail</label><input placeholder="seu@email.com" type="email"/></div>
+</div>
+<div class="cf-field">
+<label>Área Jurídica</label>
+<select>
+<option value="">Selecione a área</option>
+<option>Direito Empresarial</option>
+<option>Litígio &amp; Contencioso</option>
+<option>Direito Tributário</option>
+<option>Direito Trabalhista</option>
+<option>Direito Imobiliário</option>
+<option>Propriedade Intelectual</option>
+</select>
+</div>
+<div class="cf-field">
+<label>Descreva brevemente a sua necessidade</label>
+<textarea placeholder="Resumo do caso ou da demanda jurídica..."></textarea>
+</div>
+<button class="btn-gold" style="width:100%; font-family:var(--font-sans); border:none; cursor:pointer;" type="submit">
             Enviar Solicitação de Consulta
           </button>
-          <p class="form-disclaimer">Todas as informações compartilhadas são tratadas com absoluto sigilo profissional, nos termos do Código de Ética da OAB.</p>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="#" class="logo"><span class="logo-name">Horizon Legal Society</span><span class="logo-sub">Advocacia & Consultoria Jurídica</span></a>
-        <p>Excelência jurídica com visão estratégica, integridade absoluta e resultados consistentes desde 1998.</p>
-      </div>
-      <div class="footer-col"><h4>Especialidades</h4><ul><li><a href="#">Direito Empresarial</a></li><li><a href="#">Contencioso</a></li><li><a href="#">Tributário</a></li><li><a href="#">Trabalhista</a></li></ul></div>
-      <div class="footer-col"><h4>Escritório</h4><ul><li><a href="#">Quem Somos</a></li><li><a href="#">Sócios</a></li><li><a href="#">Publicações</a></li><li><a href="#">Carreiras</a></li></ul></div>
-      <div class="footer-col"><h4>Contato</h4><ul><li><a href="#">R. Funchal, 411 — SP</a></li><li><a href="#">(11) 3070-9900</a></li><li><a href="#">consultas@horizonlegal.com.br</a></li><li><a href="#">Seg–Sex: 8h às 19h</a></li></ul></div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2024 Horizon Legal Society. OAB/SP. Todos os direitos reservados.</p>
-      <p>Projeto desenvolvido por <span>Júlia Ágata de Assis</span></p>
-    </div>
-  </footer>
-
-  <script>
+<p class="form-disclaimer">Todas as informações compartilhadas são tratadas com absoluto sigilo profissional, nos termos do Código de Ética da OAB.</p>
+</form>
+</div>
+</div>
+</section>
+<!-- FOOTER -->
+<footer>
+<div class="footer-grid">
+<div class="footer-brand">
+<a class="logo" href="#"><span class="logo-name">Horizon Legal Society</span><span class="logo-sub">Advocacia &amp; Consultoria Jurídica</span></a>
+<p>Excelência jurídica com visão estratégica, integridade absoluta e resultados consistentes desde 1998.</p>
+</div>
+<div class="footer-col"><h4>Especialidades</h4><ul><li><a href="#">Direito Empresarial</a></li><li><a href="#">Contencioso</a></li><li><a href="#">Tributário</a></li><li><a href="#">Trabalhista</a></li></ul></div>
+<div class="footer-col"><h4>Escritório</h4><ul><li><a href="#">Quem Somos</a></li><li><a href="#">Sócios</a></li><li><a href="#">Publicações</a></li><li><a href="#">Carreiras</a></li></ul></div>
+<div class="footer-col"><h4>Contato</h4><ul><li><a href="#">R. Funchal, 411 — SP</a></li><li><a href="#">(11) 3070-9900</a></li><li><a href="#">consultas@horizonlegal.com.br</a></li><li><a href="#">Seg–Sex: 8h às 19h</a></li></ul></div>
+</div>
+<div class="footer-bottom">
+<p>© 2024 Horizon Legal Society. OAB/SP. Todos os direitos reservados.</p>
+<p>Projeto desenvolvido por <span>Júlia Ágata de Assis</span></p>
+</div>
+</footer>
+<script>
     /* ============================================================
        HORIZON LEGAL SOCIETY — Script Principal
     ============================================================ */
